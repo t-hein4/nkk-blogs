@@ -11,7 +11,6 @@ import Head from "next/head";
 export default function Index(props) {
   const { posts } = props;
 
-  console.log(posts[0].author);
   return (
     <Layout>
       <Head>
