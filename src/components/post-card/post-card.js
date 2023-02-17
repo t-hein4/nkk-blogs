@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import { Author } from '../author/author';
-import { PostDate } from '../post-date';
-import { PostDatoCmsCoverImage } from '../post-dato-cms-cover-image';
-import { PostTextLink } from '../post-link';
-import { PostCardExcerpt } from './post-card-excerpt';
-import { PostCardHeader } from './post-card-header';
+import Link from "next/link";
+import { Author } from "../author/author";
+import { PostDate } from "../post-date";
+import { PostDatoCmsCoverImage } from "../post-dato-cms-cover-image";
+import { PostTextLink } from "../post-link";
+import { PostCardExcerpt } from "./post-card-excerpt";
+import { PostCardHeader } from "./post-card-header";
 
 export function PostCard(props) {
   const { title, excerpt, date, coverImage, author, slug } = props;
@@ -23,7 +23,7 @@ export function PostCard(props) {
         </PostTextLink>
         <PostDate date={date} />
         <PostCardExcerpt postExcerpt={excerpt} />
-        <Author author={author} avatarHeight={64} avatarWidth={64} />
+        <Author author={author} />
       </div>
     </article>
   );

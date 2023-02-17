@@ -1,16 +1,14 @@
-import Image from 'next/image';
+import { Image } from "react-datocms/image";
 
 export function AuthorAvatar(props) {
-  const { src, alt, width, height } = props;
+  const { avatar, alt } = props;
 
   return (
-    <div className="w-fit h-fit rounded-full overflow-hidden">
+    <div className="w-16 h-16">
       <Image
-        src={src}
+        data={avatar.responsiveImage}
         alt={alt}
-        className="object-center object-cover"
-        width={width}
-        height={height}
+        className="object-fill object-center"
       />
     </div>
   );
