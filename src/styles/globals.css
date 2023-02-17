@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .markdown {
+    @apply text-xl leading-normal max-w-prose;
+  }
+
+  .markdown > p {
+    @apply mb-6;
+  }
+
+  .markdown > h2,
+  .markdown > h3 {
+    @apply my-6 font-semibold;
+  }
+
+  .markdown > h2 {
+    @apply text-4xl;
+  }
+  .markdown > h3 {
+    @apply text-3xl;
+  }
+}

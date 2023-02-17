@@ -1,0 +1,40 @@
+#import "./fragment.graphql"
+
+query AllPosts($orderBy: [PostModelOrderBy]) {
+  allPosts(orderBy: $orderBy) {
+    ...PostEssentialFragment
+    excerpt
+  }
+}
+
+query AllPostSlugs {
+  allPosts {
+    slug
+  }
+}
+
+query PreviewPostSlug($filter: PostModelFilter) {
+  post(filter: $filter) {
+    slug
+  }
+}
+
+query PostAndMorePosts(
+  $postFilter: PostModelFilter
+  $morePostsFilter: PostModelFilter
+  $morePostsFirst: IntType
+  $morePostsOrderBy: [PostModelOrderBy]
+) {
+  post(filter: $postFilter) {
+    ...PostEssentialFragment
+    content
+  }
+  morePosts: allPosts(
+    first: $morePostsFirst
+    orderBy: $morePostsOrderBy
+    filter: $morePostsFilter
+  ) {
+    ...PostEssentialFragment
+    excerpt
+  }
+}

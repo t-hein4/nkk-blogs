@@ -1,0 +1,48 @@
+fragment ResponsiveImageFragment on ResponsiveImage {
+  srcSet
+  webpSrcSet
+  sizes
+  src
+  width
+  height
+  aspectRatio
+  alt
+  title
+  bgColor
+  base64
+}
+
+fragment AuthorFragment on AuthorRecord {
+  name
+  picture {
+    responsiveImage(
+      imgixParams: {
+        fit: facearea
+        facepad: 2
+        w: 100
+        h: 100
+        auto: format
+        mask: "ellipse"
+      }
+    ) {
+      ...ResponsiveImageFragment
+    }
+  }
+}
+
+fragment PostEssentialFragment on PostRecord {
+  id
+  title
+  slug
+  date
+  author {
+    ...AuthorFragment
+  }
+  coverImage {
+    responsiveImage(
+      imgixParams: { fit: fill, fill: blur, w: 2000, h: 1000, auto: compress }
+    ) {
+      ...ResponsiveImageFragment
+    }
+  }
+}
